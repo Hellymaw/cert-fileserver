@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html land="en">
+<body>
+<h1 id="root-cas">IntelliDesign Root CAs</h1>
+<ul>
+    {% for cert in certs %}
+        <li><strong>{{cert.name}}</strong>
+            <ul>
+                <li>Subject: <code>{{cert.common_name}}</code></li>
+                <li>Issuer: <code>{{cert.issuer}}</code></li>
+                <li>Key type: <code>{{cert.key_info}}</code></li>
+                <li>Validity: until {{cert.valid_date}}</li>
+                <li>Certificate details (self-signed): <a href="/{{cert.filename}}">pem</a></li>
+            </ul>
+        </li>
+    {% endfor %}
+</ul>
+</body>
+</html>
